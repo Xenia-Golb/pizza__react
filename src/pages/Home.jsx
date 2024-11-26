@@ -15,6 +15,7 @@ function Home() {
         setItems(json);
         setLoading(false);
       });
+    window.scroll(0, 0);
   }, []);
   return (
     <>
