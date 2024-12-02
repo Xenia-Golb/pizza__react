@@ -1,4 +1,4 @@
-function Categories({ value, onChangeCategory }) {
+export function Categories({ value, onChangeCategory }) {
   const categories = [
     { id: 0, name: "Все" },
     { id: 1, name: "Мясные" },
@@ -24,5 +24,3 @@ function Categories({ value, onChangeCategory }) {
     </div>
   );
 }
-
-export default Categories;

@@ -1,5 +1,8 @@
+import { useContext } from "react";
 import styles from "./Search.module.scss";
-function Search({ searchValue, setSearchValue }) {
+import { SearchContext } from "../../App";
+export function Search() {
+  const { searchValue, setSearchValue } = useContext(SearchContext);
   const onClickClear = () => {
     setSearchValue(" ");
   };
@@ -62,5 +65,3 @@ function Search({ searchValue, setSearchValue }) {
     </div>
   );
 }
-
-export default Search;

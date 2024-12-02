@@ -1,5 +1,5 @@
 import styles from "./NotFound.module.scss";
-function NotFoundBlock() {
+export function NotFoundBlock() {
   return (
     <div className={styles.root}>
       <h1>
@@ -13,5 +13,3 @@ function NotFoundBlock() {
     </div>
   );
 }
-
-export default NotFoundBlock;

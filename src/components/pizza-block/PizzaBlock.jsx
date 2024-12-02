@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function PizzaBlock({ title, price, imageUrl, sizes, types }) {
+export function PizzaBlock({ title, price, imageUrl, sizes, types }) {
   // const [pizzaCount, setPizzaCount] = useState(0);
 
   // const OnClickAdd = () => {
@@ -64,5 +64,3 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
     </div>
   );
 }
-
-export default PizzaBlock;

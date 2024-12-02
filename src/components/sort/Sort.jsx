@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Sort({ value, onChangeSort }) {
+export function Sort({ value, onChangeSort }) {
   const [open, setOpen] = useState(false);
 
   const list = [
@@ -49,5 +49,3 @@ function Sort({ value, onChangeSort }) {
     </div>
   );
 }
-
-export default Sort;
