@@ -6,16 +6,16 @@ import { PizzaBlock } from "../components/index";
 import { Pagination } from "../components/index";
 import { SearchContext } from "../App";
 import { useDispatch, useSelector } from "react-redux";
-import { setCategoryId } from "../redux/slices/filterSlice";
+import { setCategoryId, setPageCount } from "../redux/slices/filterSlice";
+import axios from "axios";
 
 function Home() {
-  const { categoryId, sort } = useSelector((state) => state.filter);
+  const { categoryId, sort, pageCount } = useSelector((state) => state.filter);
   const sortType = sort.sort;
   const dispatch = useDispatch();
   const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
   const skeletons = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
   ));
@@ -24,21 +24,24 @@ function Home() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(
-      `https://6740b1c4d0b59228b7f10754.mockapi.io/items?${
-        categoryId > 0 ? `category=${categoryId}` : ""
-      }&sortBy=${sortType}&order=desc&page=${currentPage}&limit=4${search}`
-    )
-      .then((res) => res.json())
-      .then((json) => {
-        setItems(json);
+    axios
+      .get(
+        `https://6740b1c4d0b59228b7f10754.mockapi.io/items?${
+          categoryId > 0 ? `category=${categoryId}` : ""
+        }&sortBy=${sortType}&order=desc&page=${pageCount}&limit=4${search}`
+      )
+      .then((res) => {
+        setItems(res.data);
         setLoading(false);
       });
     window.scroll(0, 0);
-  }, [categoryId, sortType, searchValue, currentPage]);
+  }, [categoryId, sortType, search, pageCount]);
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
+  };
+  const onChangePage = (page) => {
+    dispatch(setPageCount(page));
   };
 
   return (
@@ -56,10 +59,7 @@ function Home() {
           })}
         </div>
       </div>
-      <Pagination
-        currentPage={currentPage}
-        onChangePage={(page) => setCurrentPage(page)}
-      />
+      <Pagination currentPage={pageCount} onChangePage={onChangePage} />
     </>
   );
 }
