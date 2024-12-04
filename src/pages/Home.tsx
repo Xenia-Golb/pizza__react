@@ -76,11 +76,11 @@ function Home() {
     isMounted.current = true;
   }, [categoryId, sortType, pageCount]);
 
-  const onChangeCategory = (id) => {
+  const onChangeCategory = (id: number) => {
     dispatch(setCategoryId(id));
   };
 
-  const onChangePage = (page) => {
+  const onChangePage = (page: number) => {
     dispatch(setPageCount(page));
   };
 

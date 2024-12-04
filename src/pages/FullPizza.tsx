@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import React = require("react");
 
 const FullPizza: React.FC = () => {
   const [pizza, setPizza] = useState<{
