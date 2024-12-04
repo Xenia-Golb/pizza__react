@@ -9,23 +9,26 @@ import {
 import { SearchContext } from "../App";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  selectFilter,
   setCategoryId,
   setFilters,
   setPageCount,
 } from "../redux/slices/filterSlice";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
-import { fetchPizzas } from "../redux/slices/pizzasSlice";
+import { fetchPizzas, selectPizzaData } from "../redux/slices/pizzasSlice";
 
 function Home() {
-  const { categoryId, sort, pageCount } = useSelector((state) => state.filter);
-  const { items, status } = useSelector((state) => state.pizza.items);
+  const { categoryId, sort, pageCount, searchValue } =
+    useSelector(selectFilter);
+  const { items, status } = useSelector(selectPizzaData);
   const sortType = sort.sort;
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const isSearch = useRef(false);
   const isMounted = useRef(false);
-  const { searchValue } = useContext(SearchContext);
 
   const skeletons = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
