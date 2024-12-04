@@ -1,4 +1,14 @@
-export function Categories({ value, onChangeCategory }) {
+import React from "react";
+
+type CategoriesProps = {
+  value: number;
+  onChangeCategory: ;
+};
+
+export const Categories: React.FC<CategoriesProps> = ({
+  value,
+  onChangeCategory,
+}) => {
   const categories = [
     { id: 0, name: "Все" },
     { id: 1, name: "Мясные" },
@@ -23,4 +33,4 @@ export function Categories({ value, onChangeCategory }) {
       </ul>
     </div>
   );
-}
+};
