@@ -6,3 +6,5 @@ export { Header } from "./header/Header";
 export { Sort } from "./sort/Sort";
 export { Search } from "./search/Search";
 export { Skeleton } from "./pizza-block/Skeleton";
+export { CartItem } from "./cart-item/CartItem";
+export { CartEmpty } from "./cart-empty/CartEmpty";
