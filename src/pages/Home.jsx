@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import {
   Categories,
   Sort,
@@ -6,7 +6,6 @@ import {
   PizzaBlock,
   Pagination,
 } from "../components/index";
-import { SearchContext } from "../App";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectFilter,
@@ -15,7 +14,7 @@ import {
   setPageCount,
 } from "../redux/slices/filterSlice";
 import qs from "qs";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { fetchPizzas, selectPizzaData } from "../redux/slices/pizzasSlice";
 
 function Home() {
@@ -32,6 +31,11 @@ function Home() {
 
   const skeletons = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
+  ));
+  const pizzas = items.map((obj) => (
+    <Link to={`/pizza/${obj.id}`} key={obj.id}>
+      <PizzaBlock {...obj} />
+    </Link>
   ));
 
   useEffect(() => {
@@ -92,9 +96,7 @@ function Home() {
           <div>Ошибка</div>
         ) : (
           <div className="content__items">
-            {status === "loading"
-              ? skeletons
-              : items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
+            {status === "loading" ? skeletons : pizzas}
           </div>
         )}
       </div>
