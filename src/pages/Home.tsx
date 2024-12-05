@@ -2,7 +2,6 @@ import React, { useEffect, useCallback, useRef } from "react";
 import qs from "qs";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import {
   Categories,
   Sort,
@@ -10,19 +9,11 @@ import {
   Skeleton,
   Pagination,
 } from "../components";
-
-import { sortList } from "../components/sort/Sort";
-
 import { useAppDispatch } from "../redux/store";
 import { selectFilter } from "../redux/filter/selectors";
 import { selectPizzaData } from "../redux/pizza/selectors";
-import {
-  setCategoryId,
-  setCurrentPage,
-  setFilters,
-} from "../redux/filter/slice";
+import { setCategoryId, setCurrentPage } from "../redux/filter/slice";
 import { fetchPizzas } from "../redux/pizza/asyncActions";
-import { SearchPizzaParams } from "../redux/pizza/types";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -49,8 +40,6 @@ const Home: React.FC = () => {
     const order = sort.sortProperty.includes("-") ? "asc" : "desc";
     const category = categoryId > 0 ? String(categoryId) : "";
     const search = searchValue;
-
-    // Dispatch fetch action with all relevant filters
     dispatch(
       fetchPizzas({
         sortBy,
@@ -77,8 +66,8 @@ const Home: React.FC = () => {
       navigate(`/?${queryString}`);
     }
 
-    getPizzas(); // Запрос пицц с актуальными параметрами
-    isMounted.current = true; // Первый рендер прошел
+    getPizzas();
+    isMounted.current = true;
   }, [
     categoryId,
     sort.sortProperty,
