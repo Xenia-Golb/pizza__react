@@ -1,0 +1,102 @@
+[
+  {
+    "id": "0",
+    "imageUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610A62D78598406363A9A8AD65.avif",
+    "title": "Пепперони Фреш с перцем",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 803,
+    "category": 4,
+    "rating": 4
+  },
+  {
+    "id": "1",
+    "imageUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D614CBE0530B7234B6D7A6E5F8E.avif",
+    "title": "Сырная",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 245,
+    "category": 4,
+    "rating": 6
+  },
+  {
+    "id": "2",
+    "imageUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D60FDA22358AC33C6A44EB093A2.avif",
+    "title": "Ветчина и сыр",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 295,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": "3",
+    "imageUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610E8BBB248F31270BE742B4BD.avif",
+    "title": "Кисло-сладкий цыпленок",
+    "types": [1],
+    "sizes": [26, 30, 40],
+    "price": 275,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": "4",
+    "imageUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6101F670D6AA756B1C989E0489.avif",
+    "title": "Чизбургер-пицца",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 415,
+    "category": 3,
+    "rating": 8
+  },
+  {
+    "id": " 5",
+    "imageUrl": "https://media.dodostatic.net/image/r:584x584/11EF8537F2244E8CAEB7C69E644D0537.avif",
+    "title": "Крэйзи пепперони",
+    "types": [0],
+    "sizes": [30, 40],
+    "price": 580,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": "6",
+    "imageUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6108E3A1C9952CD3A7F39A4D02.avif",
+    "title": "Пепперони",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 675,
+    "category": 1,
+    "rating": 9
+  },
+  {
+    "id": "7",
+    "imageUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D617E9339CFB185921A343AD8FD.avif",
+    "title": "Гавайская",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 450,
+    "category": 4,
+    "rating": 10
+  },
+  {
+    "id": "8",
+    "imageUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6149EB101D8727573088FA2EFF.avif",
+    "title": "Диабло",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 395,
+    "category": 5,
+    "rating": 10
+  },
+  {
+    "id": "9",
+    "imageUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6175C10773BFE36E56D48DF7E3.avif",
+    "title": "Жюльен",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 285,
+    "category": 5,
+    "rating": 7
+  }
+]

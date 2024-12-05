@@ -1,4 +1,10 @@
+@import "../../sass/variables";
 .root {
+  display: flex; // Устанавливаем flexbox для родителя
+  justify-content: center; // Центрируем элементы по горизонтали
+  align-items: center; // Центрируем элементы по вертикали (если нужно)
+  width: 100%;
+  padding: 20px 0;
   li {
     display: inline-block;
 
@@ -7,26 +13,25 @@
       width: 45px;
       line-height: 42px;
       height: 45px;
-      border: 1px solid #fe5f1e;
+      border: 1px solid $orange; // Используем переменную $orange вместо хардкодинга цвета
       border-radius: 30px;
       margin-right: 10px;
       cursor: pointer;
       display: inline-block;
-      color: #fe5f1e;
+      color: $orange; // Также можно заменить на переменную
+
+      transition: background-color 0.3s, color 0.3s; // Добавим плавный переход для цветов
 
       &:hover {
-        background-color: #fe5f1e;
+        background-color: $orange; // Переход на основной цвет
         color: #fff;
       }
     }
   }
 
-  :global {
-    .selected {
-      a {
-        background-color: #fe5f1e;
-        color: #fff;
-      }
-    }
+  // Если используете глобальные стили, их лучше вынести отдельно, либо использовать глобальный класс через CSS modules
+  .selected a {
+    background-color: $orange; // Используем переменную для цвета
+    color: #fff;
   }
 }

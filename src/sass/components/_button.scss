@@ -1,14 +1,15 @@
-@import '../variables';
+@import "../variables";
 
 .button {
   display: inline-block;
-  background-color: $orange;
+  background-color: #f4a261; /* Пастельный оранжевый */
   border-radius: 30px;
   padding: 10px 20px;
   min-width: 100px;
   text-align: center;
   cursor: pointer;
-  transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
+  transition: background-color $duration ease-in-out,
+    border-color $duration ease-in-out;
   border: 1px solid transparent;
   @include noselect();
 
@@ -25,11 +26,14 @@
   }
 
   &:hover {
-    background-color: darken($orange, 8%);
+    background-color: lighten(#f4a261, 8%); /* Легкое осветление для hover */
   }
 
   &:active {
-    background-color: darken($orange, 12%);
+    background-color: lighten(
+      #f4a261,
+      12%
+    ); /* Еще более светлый оттенок при активации */
     transform: translateY(1px);
   }
 
@@ -45,36 +49,34 @@
   }
 
   &--black {
-    background-color: $black;
+    background-color: #232323; /* Темный фон для варианта */
 
     &:hover,
     &:active {
-      background-color: lighten($color: $black, $amount: 10);
+      background-color: lighten(#232323, 10%);
     }
   }
 
   &--outline {
     background-color: #fff;
-    border-color: $orange;
+    border-color: #f4a261; /* Пастельный оранжевый для outline */
     &,
     span {
-      color: $orange;
+      color: #f4a261; /* Текст иконки оранжевый */
     }
 
     svg {
       path {
-        fill: $orange;
+        fill: #f4a261; /* Оранжевый цвет иконок */
       }
     }
 
     &:hover {
-      background-color: $orange;
-
+      background-color: #f4a261;
       &,
       span {
         color: #fff;
       }
-
       svg {
         path {
           fill: #fff;
@@ -83,7 +85,7 @@
     }
 
     &:active {
-      background-color: darken($orange, 8%);
+      background-color: darken(#f4a261, 8%);
     }
   }
 
@@ -108,14 +110,14 @@
     &:hover {
       i {
         background-color: #fff;
-        color: $orange;
+        color: #f4a261;
       }
     }
 
     i {
       display: inline-block;
       border-radius: 30px;
-      background-color: $orange;
+      background-color: #f4a261;
       color: #fff;
       font-weight: 600;
       width: 22px;

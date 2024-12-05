@@ -1,32 +1,77 @@
-@import '../variables';
+@import "../variables";
 
 .header {
-  border-bottom: 1px solid $gray-line;
+  border-bottom: 1px solid #e0e0e0; /* Светлый серый цвет для границы */
   padding: 40px 0;
+  background-color: #fafafa; /* Светлый фоновый цвет для шапки */
 
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 645px) {
+      flex-direction: column;
+      align-items: flex-start; /* Для мобильных устройств выравниваем элементы по левому краю */
+
+      .header__cart {
+        margin-top: 20px;
+      }
+    }
   }
 
   &__logo {
     display: flex;
+    align-items: center; /* Выравнивание по центру вертикально */
 
     img {
-      margin-right: 15px;
+      margin-right: 12px; /* Уменьшение отступа между логотипом и текстом */
+      width: 40px; /* Уменьшение размера логотипа */
+      height: auto;
     }
 
     h1 {
-      color: #181818;
-      font-size: 24px;
-      letter-spacing: 1%;
+      color: #333333; /* Более мягкий серый цвет */
+      font-size: 28px; /* Увеличение размера заголовка */
+      font-weight: 700; /* Меньше жирности */
+      letter-spacing: 0.5%; /* Уменьшение межбуквенного интервала */
       text-transform: uppercase;
-      font-weight: 800;
+      transition: color 0.3s ease; /* Плавное изменение цвета при hover */
+
+      &:hover {
+        color: #f4a261; /* Мягкий оранжевый цвет при наведении */
+      }
     }
 
     p {
-      color: #7b7b7b;
+      color: #8a8a8a; /* Светло-серый для дополнительного текста */
+      font-size: 16px; /* Уменьшение размера шрифта */
+      font-weight: 500; /* Легкая жирность */
+      margin-top: 4px; /* Отступ сверху для текста */
+    }
+  }
+
+  &__cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    color: #7b7b7b; /* Светло-серый цвет для текста */
+    transition: color 0.3s ease;
+
+    svg {
+      margin-right: 8px;
+      fill: #7b7b7b; /* Цвет иконки */
+    }
+
+    &:hover {
+      color: #f4a261; /* Цвет при наведении */
+
+      svg {
+        fill: #f4a261; /* Изменение цвета иконки при hover */
+      }
     }
   }
 }

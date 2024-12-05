@@ -1,23 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "./FullPizza.scss";
+
+interface Pizza {
+  imageUrl: string;
+  title: string;
+  price: number;
+}
 
 const FullPizza: React.FC = () => {
-  const [pizza, setPizza] = useState<{
-    imageUrl: string;
-    title: string;
-    price: number;
-  }>();
-
-  const { id } = useParams();
+  const [pizza, setPizza] = useState<Pizza | null>(null);
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (!id) return;
+
     async function fetchPizza() {
       try {
-        const { data } = await axios.get(
-          "https://626d16545267c14d5677d9c2.mockapi.io/items/" + id
+        const { data } = await axios.get<Pizza>(
+          `https://6740b1c4d0b59228b7f10754.mockapi.io/items/${id}`
         );
         setPizza(data);
       } catch (error) {
@@ -27,16 +30,20 @@ const FullPizza: React.FC = () => {
     }
 
     fetchPizza();
-  }, []);
+  }, [id, navigate]);
 
   if (!pizza) {
-    return <>Загрузка...</>;
+    return (
+      <div className="loader">
+        <div className="spinner"></div>
+        <div className="loading-text">Загрузка...</div>
+      </div>
+    );
   }
 
   return (
-    <div className="container">
-      <img src={pizza.imageUrl} alt="pizza-photo" />
-      <h2>{pizza.title}</h2>
+    <div className="container-full-pizza ">
+      <img src={pizza.imageUrl} alt={pizza.title} /> <h2>{pizza.title}</h2>
       <h4>{pizza.price} ₽</h4>
       <Link to="/">
         <button className="button button--outline button--add">

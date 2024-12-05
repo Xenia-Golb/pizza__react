@@ -1,20 +1,31 @@
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
-import { CartEmpty, CartItem } from "../components/index";
-import { clearItems, selectCart } from "../redux/slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-function Cart() {
-  const { items, totalPrice } = useSelector(selectCart);
+import { CartItem, CartEmpty } from "../components";
+
+import { selectCart } from "../redux/cart/selectors";
+import { clearItems } from "../redux/cart/slice";
+
+const Cart: React.FC = () => {
   const dispatch = useDispatch();
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+  const { totalPrice, items } = useSelector(selectCart);
+
+  const totalCount = items.reduce(
+    (sum: number, item: any) => sum + item.count,
+    0
+  );
+
   const onClickClear = () => {
     if (window.confirm("Очистить корзину?")) {
       dispatch(clearItems());
     }
   };
+
   if (!totalPrice) {
     return <CartEmpty />;
   }
+
   return (
     <div className="container container--cart">
       <div className="cart">
@@ -93,7 +104,7 @@ function Cart() {
           </div>
         </div>
         <div className="content__items">
-          {items.map((item) => (
+          {items.map((item: any) => (
             <CartItem key={item.id} {...item} />
           ))}
         </div>
@@ -105,7 +116,7 @@ function Cart() {
             </span>
             <span>
               {" "}
-              Сумма заказа: <b>{totalPrice} ₽</b>
+              Сумма заказа: <b>{totalPrice} ₽</b>{" "}
             </span>
           </div>
           <div className="cart__bottom-buttons">
@@ -139,6 +150,6 @@ function Cart() {
       </div>
     </div>
   );
-}
+};
 
 export default Cart;

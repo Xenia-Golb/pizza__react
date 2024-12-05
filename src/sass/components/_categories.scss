@@ -1,31 +1,37 @@
-@import '../variables';
+@import "../variables";
 
 .categories {
   ul {
     display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
-    li {
-      background-color: #f9f9f9;
-      padding: 13px 30px;
-      border-radius: 30px;
-      margin-right: 10px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.1s ease-in-out;
-      @include noselect();
+  li {
+    background-color: #f4f4f4; /* Светлый фон для кнопок */
+    padding: 12px 25px;
+    border-radius: 30px;
+    margin-right: 12px;
+    font-weight: 600; /* Меньше жирности, для более легкого текста */
+    font-size: 14px; /* Размер шрифта для удобочитаемости */
+    color: #555; /* Темно-серый цвет текста */
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease; /* Плавные анимации для фона и текста */
+    @include noselect(); /* Отключение выделения текста */
 
-      &:hover {
-        background-color: darken(#f9f9f9, 2%);
-      }
+    &:hover {
+      background-color: #e0e0e0; /* Легкое затемнение при наведении */
+      color: #f4a261; /* Мягкий оранжевый цвет текста при hover */
+    }
 
-      &:active {
-        background-color: darken(#f9f9f9, 5%);
-      }
+    &:active {
+      background-color: #d0d0d0; /* Еще более мягкое затемнение при нажатии */
+    }
 
-      &.active {
-        background-color: #282828;
-        color: #fff;
-      }
+    &.active {
+      background-color: #f4a261; /* Мягкий пастельный оранжевый */
+      color: #fff; /* Белый цвет текста для активного состояния */
     }
   }
 }
